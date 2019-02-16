@@ -1,0 +1,27 @@
+{
+  "name": "ali-mps",
+  "version": "0.0.0",
+  "author": "geekberry@qq.com",
+  "description": "aliyun mps nodejs sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeekBerry/ali-mps.git"
+  },
+  "keywords": [
+    "ali",
+    "aliyun",
+    "mts",
+    "mps",
+    "media",
+    "transcode"
+  ],
+  "bugs": {
+    "url": "https://github.com/GeekBerry/ali-mps/issues"
+  },
+  "homepage": "https://github.com/GeekBerry/ali-mps#readme"
+}
