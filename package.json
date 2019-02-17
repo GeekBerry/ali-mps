@@ -1,6 +1,6 @@
 {
   "name": "ali-mps",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "geekberry@qq.com",
   "description": "aliyun mps nodejs sdk",
   "main": "index.js",
@@ -20,8 +20,19 @@
     "media",
     "transcode"
   ],
+  "files": [
+    "readme.md",
+    "index.js",
+    "lib"
+  ],
   "bugs": {
     "url": "https://github.com/GeekBerry/ali-mps/issues"
   },
-  "homepage": "https://github.com/GeekBerry/ali-mps#readme"
+  "homepage": "https://github.com/GeekBerry/ali-mps#readme",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "superagent": "^4.1.0",
+    "validator-picker": "0.0.5"
+  }
 }
