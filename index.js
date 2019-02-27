@@ -1,5 +1,10 @@
-const { SubmitMediaInfoJobQuery, QueryMediaInfoJobListQuery } = require('./lib/info_querys');
-const { ListJobQuery, SubmitJobsQuery, QueryJobQuery, CancelJobQuery } = require('./lib/trans_querys');
+const SubmitMediaInfoJob = require('./lib/media_info/submit_media_info_job');
+const QueryMediaInfoJobList = require('./lib/media_info/query_media_info_job_list');
+
+const SubmitJobs = require('./lib/transcode/submits_job');
+const ListJob = require('./lib/transcode/list_job');
+const QueryJobList = require('./lib/transcode/query_job_list');
+const CancelJob = require('./lib/transcode/cancel_job');
 
 class MediaProcessService {
   constructor({ endpoint, accessKeyId, accessKeySecret, pipelineId }) {
@@ -7,27 +12,27 @@ class MediaProcessService {
   }
 
   info() {
-    return new SubmitMediaInfoJobQuery(this.options);
+    return new SubmitMediaInfoJob(this.options);
   }
 
-  infoList() {
-    return new QueryMediaInfoJobListQuery(this.options);
+  infoQuery() {
+    return new QueryMediaInfoJobList(this.options);
   }
 
   submit() {
-    return new SubmitJobsQuery(this.options);
+    return new SubmitJobs(this.options);
   }
 
   list() {
-    return new ListJobQuery(this.options);
+    return new ListJob(this.options);
   }
 
   query() {
-    return new QueryJobQuery(this.options);
+    return new QueryJobList(this.options);
   }
 
   cancel() {
-    return new CancelJobQuery(this.options);
+    return new CancelJob(this.options);
   }
 }
 
