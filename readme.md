@@ -1,5 +1,8 @@
 # 阿里云媒体处理服务(MPS)
 
+**现阶段只实现部分音频相关的 API !!!**  
+**Only implemented some audio transcode API now!!!**  
+
 ## Usage
 ```javascript
 const MediaProcessService = require('ali-mps');
@@ -12,11 +15,13 @@ const mps = new MediaProcessService({
 });
 
 async function main() {
-  const respInfo = await mps.info().input({bucket:'...', location:'...', object:'...'});
-  console.log(respInfo);
+  let resp;
   
-  const respSubmit = await mps.submit()
-    .pipelineId('<pipelineId>')
+  resp = await mps.submitMediaInfo().input({bucket:'...', location:'...', object:'...'});
+  console.log(resp.statusCode);
+  console.log(JSON.stringify(resp.body, null, 2));
+  
+  resp = await mps.submit()
     .input({bucket:'...', location:'...', object:'...'})
     .output({bucket:'...', location:'...', object:'...'})
     .templateId('...')
@@ -27,23 +32,25 @@ async function main() {
       channels: 2, 
       bitrate: 8, 
       samplerate: 44100,
-      remove: false,
     })
     .volume({method: 'dynamic'})
     .priority(6);
-  console.log(respSubmit);
+  console.log(resp.statusCode);
+  console.log(JSON.stringify(resp.body, null, 2));
   
-  const respJobs = await mps.list()
-    .pipelineId('<pipelineId>')
+  resp = await mps.list()
     .startTime('2019-01-01 12:00:00')
     .endTime('2019-01-02 12:00:00');
-  console.log(respJobs);
+  console.log(resp.statusCode);
+  console.log(JSON.stringify(resp.body, null, 2));
   
-  const respJob = await mps.query().jobId('<oneJobId>');
-  console.log(respJob);
+  resp = await mps.query().jobId('<oneJobId>');
+  console.log(resp.statusCode);
+  console.log(JSON.stringify(resp.body, null, 2));
   
-  const respCancel = await mps.cancel().jobId('<oneJobId>');
-  console.log(respCancel); 
+  resp = await mps.cancel().jobId('<oneJobId>');
+  console.log(resp.statusCode);
+  console.log(JSON.stringify(resp.body, null, 2));
   // ...
 }
 
