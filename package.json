@@ -1,6 +1,6 @@
 {
   "name": "ali-mps",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "geekberry@qq.com",
   "description": "aliyun mps nodejs sdk",
   "main": "index.js",
@@ -33,6 +33,6 @@
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "superagent": "^4.1.0",
-    "validator-picker": "0.0.5"
+    "validator-picker": "0.0.9"
   }
 }

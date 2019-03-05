@@ -11,14 +11,6 @@ class MediaProcessService {
     this.options = { endpoint, accessKeyId, accessKeySecret, pipelineId };
   }
 
-  info() {
-    return new SubmitMediaInfoJob(this.options);
-  }
-
-  infoQuery() {
-    return new QueryMediaInfoJobList(this.options);
-  }
-
   submit() {
     return new SubmitJobs(this.options);
   }
@@ -33,6 +25,14 @@ class MediaProcessService {
 
   cancel() {
     return new CancelJob(this.options);
+  }
+
+  submitMediaInfo() {
+    return new SubmitMediaInfoJob(this.options);
+  }
+
+  queryMediaInfo() {
+    return new QueryMediaInfoJobList(this.options);
   }
 }
 
